@@ -65,7 +65,7 @@ public class AdresseSQL implements AdresseDAO {
         try {
             connection = ConfigMySQL.getInstance().getConnection();
             // Préparer ma requête
-            ps = connection.prepareStatement("SELECT id, rue, complement, codePostal, ville, pays FROM Utilisateur WHERE id = ?");
+            ps = connection.prepareStatement("SELECT id, rue, complement, codePostal, ville, pays FROM Adresse WHERE id = ?");
             ps.setLong(1,id);
             // Exécuter la requête avec mon interprète
             result = ps.executeQuery();
@@ -165,7 +165,7 @@ public class AdresseSQL implements AdresseDAO {
 
     @Override
     public void delete(Long id) {
-// Pour communiquer j'ai besoin de 3 infos:
+// Pour communiquer j'ai besoin de 2 infos:
         Connection connection;
         PreparedStatement ps = null;
 
